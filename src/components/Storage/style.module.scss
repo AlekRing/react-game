@@ -1,0 +1,171 @@
+.storage {
+    width: 100%;
+    text-align: center;
+}
+
+.goods-list {
+    margin: 3% 3% 3%;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto;
+    
+
+    li:hover {
+        background-color: #FF6600;
+        cursor: pointer;
+    }
+}
+
+
+.goods-box {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    border: 1px solid #FF6600;
+    box-sizing: border-box;
+    transition: .1s;
+
+    background-color: rgba(233, 89, 22, 0.637);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.goods-box-empty {
+        background-image: none;
+        background-color: rgba(219, 141, 52, 0);
+
+        &:hover {
+             background-color: rgba(219, 141, 52, 0);
+            cursor: default;
+        }
+    }
+
+    &.goods-box-1 {
+        background-image: url('../../assets/mushrooms.svg');
+    }
+
+    &.goods-box-2 {
+        background-image: url('../../assets/woods.svg');
+    }
+
+    &.goods-box-3 {
+        background-image: url('../../assets/milk.svg');
+    }
+
+    &.goods-box-4 {
+        background-image: url('../../assets/seeds.svg');
+    }
+
+    &.goods-box-5 {
+        background-image: url('../../assets/vegetables.svg');
+    }
+
+    &.goods-box-6 {
+        background-image: url('../../assets/stone.svg');
+    }
+
+    &.goods-box-7 {
+        background-image: url('../../assets/tools.svg');
+    }
+
+    &.goods-box-8 {
+        background-image: url('../../assets/gold.svg');
+    }
+}
+
+.goods-title {
+    position: absolute;
+    width: 100%;
+    padding: 2px 0 2px 0;
+    color: white;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.selected-box {
+    border: 2px solid #00fdfd;
+    background-color: #FF6600;
+}
+
+.sell-panel {
+    margin: 6% 0;
+    padding: 6% 0 4%;
+    border-top: 1px dashed #ff6600da;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls {
+    margin-right: 6%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ship-panel {
+    margin: 2% 0;
+    padding: 6% 0 4%;
+    width: 100%;
+    border-top: 1px dashed #ff6600da;
+    display: flex;
+    justify-content: center;
+}
+.select-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.selected-good {
+    width: 100%;
+    text-align: center;
+    color: #d35400;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.select-button {
+    margin: 0;
+    width: 35%;
+    height: 26px;
+}
+
+.select-city {
+    text-align: center;
+    padding: 2px;
+    outline: none;
+    background: none;
+    border: 1px solid #FF6600;
+    color: #d35400;
+
+    &:hover {
+        cursor: pointer;
+    }    
+}
+
+@media (max-width: 714px) {
+    .goods-list {
+        grid-template-columns: auto auto;
+    }
+    .selected-good {
+        font-size: 18px;
+    }
+}
+@media (max-width: 535px) {
+    .goods-box {
+        width: 70px;
+        height: 70px;
+    }
+    .goods-list {
+        grid-template-columns: auto;
+    }
+    .selected-good {
+        font-size: 16px;
+    }
+}

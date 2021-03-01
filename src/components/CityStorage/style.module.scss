@@ -1,0 +1,106 @@
+.goods {
+
+}
+
+.goods-list {
+    margin: 3% 3% 3%;
+    padding: 0;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto;
+    
+
+    .goods-box:hover {
+        cursor: auto;
+    }
+}
+
+.goods-box {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #FF6600;
+    box-sizing: border-box;
+    transition: .1s;
+
+    background-color: #FFCC66;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    // &.goods-box-empty {
+    //     background-image: none;
+
+    //     &:hover {
+    //         background-color: rgba(219, 141, 52, 0.884);
+    //         cursor: a;
+    //     }
+    // }
+
+    &.goods-box-1 {
+        background-image: url('../../assets/mushrooms.svg');
+    }
+
+    &.goods-box-2 {
+        background-image: url('../../assets/woods.svg');
+    }
+
+    &.goods-box-3 {
+        background-image: url('../../assets/milk.svg');
+    }
+
+    &.goods-box-4 {
+        background-image: url('../../assets/seeds.svg');
+    }
+
+    &.goods-box-5 {
+        background-image: url('../../assets/vegetables.svg');
+    }
+
+    &.goods-box-6 {
+        background-image: url('../../assets/stone.svg');
+    }
+
+    &.goods-box-7 {
+        background-image: url('../../assets/tools.svg');
+    }
+
+    &.goods-box-8 {
+        background-image: url('../../assets/gold.svg');
+    }
+}
+
+.goods-box-wrapper {
+    padding: 1% 0 4% 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.goods-box-stats {
+    box-sizing: border-box;
+}
+
+.input {
+    margin-top: 10%;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.good-price {
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.goods-input-box {
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 50px;
+}
+
+.input-button {
+    width: 100%;
+}

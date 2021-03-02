@@ -39,7 +39,7 @@
         background-color: rgba(219, 141, 52, 0);
 
         &:hover {
-             background-color: rgba(219, 141, 52, 0);
+            background-color: rgba(219, 141, 52, 0);
             cursor: default;
         }
     }
@@ -84,6 +84,7 @@
     color: white;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
 }
 
 .selected-box {

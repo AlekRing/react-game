@@ -3,7 +3,7 @@
 }
 
 .goods-list {
-    margin: 3% 3% 3%;
+    margin: 3% 2% 3%;
     padding: 0;
     display: grid;
     grid-gap: 5px;
@@ -21,20 +21,9 @@
     height: 50px;
     border: 1px solid #FF6600;
     box-sizing: border-box;
-    transition: .1s;
 
-    background-color: #FFCC66;
     background-repeat: no-repeat;
     background-size: contain;
-
-    // &.goods-box-empty {
-    //     background-image: none;
-
-    //     &:hover {
-    //         background-color: rgba(219, 141, 52, 0.884);
-    //         cursor: a;
-    //     }
-    // }
 
     &.goods-box-1 {
         background-image: url('../../assets/mushrooms.svg');

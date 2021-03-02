@@ -9,6 +9,7 @@ import Transportations from "../Transportations/Transportations"
 import Stats from "../Stats/Stats"
 import Footer from "../Footer/Footer"
 
+
 function App() {
     const [currentCity, setCurrentCity] = useState(1);
 
@@ -221,8 +222,8 @@ function App() {
         const storagesNew = storages;
         let newMoney:number = money;
 
-            const index:number = storagesNew.findIndex(storage =>
-            storage.cityId === currentCity);
+        const index:number = storagesNew.findIndex(storage =>
+        storage.cityId === currentCity);
         
         if (index > -1) {
             const goodOnSellIndex:number = storagesNew[index].storage.findIndex(good => {
@@ -233,29 +234,27 @@ function App() {
                 const currentCityStorage = getGeneralCityStorage();
 
                 const goodIndex:number = currentCityStorage.findIndex((good) => {
-                    return good.id === goodId
+                    return good.id === goodId;
                 });
 
-                if (goodIndex < 0 || storagesNew[index].storage[goodOnSellIndex].qty < qty) {
-                    console.log('CANT SELL')
-                    return
-                }
-
                 if (goodIndex > -1) {
-                   
-
                     const pricesStatsLenght = currentCityStorage[goodIndex].priceStats.length
+                    
                     const price:number = currentCityStorage[goodIndex]
                         .priceStats[pricesStatsLenght - 1];
 
-                    storagesNew[index].storage[goodOnSellIndex].qty -= qty;
-                    newMoney += qty * price;
-
-                    setMoney(newMoney);
+                    if (storagesNew[index].storage[goodOnSellIndex].qty >= qty) {
+                        storagesNew[index].storage[goodOnSellIndex].qty -= qty;
+                        newMoney += qty * price;
+    
+                        if (storagesNew[index].storage[goodOnSellIndex].qty === 0) {
+                            removeGood(storagesNew[index].storage[goodOnSellIndex].id)
+                        }
+                        setMoney(newMoney);
+                    }
                 }
             }
         }
-
         setStorages(storagesNew);
     }
 
@@ -297,6 +296,25 @@ function App() {
         return []
     }
 
+    function removeGood(goodId:number) {
+        const storagesNew = storages;
+
+        const index:number = storagesNew.findIndex(storage =>
+            storage.cityId === currentCity);
+        
+        if (index > -1) {
+            const goodOnSellIndex:number = storagesNew[index].storage.findIndex(good => {
+              return  good.id === goodId
+            });
+
+            if (goodOnSellIndex > -1) {
+                storagesNew[index].storage.splice(goodId, 1)
+            }
+        }
+
+        setStorages(storagesNew);
+    }
+
     function createTransportOrder(targetCityID:number) {
         const newOrders:any = [...transportOrders];
 
@@ -310,26 +328,36 @@ function App() {
             targetCityID,
             goodId: selectedGood,
             qty: storage[goodInd].qty,
-            days: 30
+            days: 16
         });
 
+        removeGood(selectedGood);
         setTransprotOrders(newOrders);
     }
 
+    function updateTransportationDays() {
+        setTransprotOrders((oldOrders:object[]) => {
+            const newOrders:any = [...oldOrders];
+
+            newOrders.forEach((orders:any, i:number) => {
+                if (orders.days >= 1) orders.days -= 1;
+            });
+
+            return newOrders;
+        });
+    }
+
     function lifeCycle() {
-        setTimeout(() => {
+        setInterval(() => {
             updateCityStorages();
-            setDays(days + 1);
+            updateTransportationDays();
+            setDays((days) => days + 1);
         }, 5000)
     }
 
     useEffect(() => {
         lifeCycle();
     }, []);
-
-    lifeCycle()
-
-    //__TEST__
 
     return(
         <div className="app">

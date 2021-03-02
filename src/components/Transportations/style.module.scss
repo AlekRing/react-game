@@ -10,15 +10,11 @@
 }
 
 .goods-box {
-    margin-left: 2%;
+    margin-left: 1%;
     position: relative;
-    width: 65px;
-    height: 65px;
-    border: 1px solid #FF6600;
-    box-sizing: border-box;
-    transition: .1s;
+    width: 56px;
+    height: 56px;
 
-    background-color: #FFCC66;
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -53,4 +49,19 @@
     &.goods-box-8 {
         background-image: url('../../assets/gold.svg');
     }
+}
+
+.from-to-town {
+    text-align: center;
+}
+
+.to-ship {
+    text-align: center;
+    margin-right: 2%;
+}
+
+.to-ship-btn {
+    // width: 120%;
+    // padding: 20%;
+    // box-sizing: border-box;
 }

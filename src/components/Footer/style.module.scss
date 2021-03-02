@@ -1,6 +1,6 @@
 .footer {
     margin-bottom: 1%;
-    padding: 4px 0;
+    padding: 1% 0;
     width: 100%;
     font-size: 14px;
     background: #FF9933;
@@ -8,5 +8,57 @@
     border-radius: 2px;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
+a {
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.8;
+}
+
+.year {
+    margin-right: 1%;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.rsSchool {
+    margin-right: 1%;
+    width: 48px;
+    height: 26px;
+    border-radius: 5px;
+    background-image: url('../../assets/rs_school-og.png');
+}
+
+.github {
+    position: relative;
+    margin-right: 2%;
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/github.png');
+
+    ::before {
+        content: '';
+        position: absolute;
+        color: white;
+        padding: 2px 4px;
+        top: -110%;
+        left: -70%;
+        box-sizing: border-box;
+        opacity: 0;
+    }
+
+    &:hover {
+        ::before {
+            content: 'Alek_Ring';
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+}
+

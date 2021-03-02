@@ -15,6 +15,7 @@ function Transportations(props:any) {
         })!.city
     }
 
+
     return (
         <>
             <h3>Shipping</h3>
@@ -30,7 +31,7 @@ function Transportations(props:any) {
                             </div>
                             <div className={s['to-ship']}>
                                 <div className={s.days}>{order.days}</div>
-                                <button className={s['to-ship-btn']}>Ship</button>
+                                <button className={s['to-ship-btn']} disabled={order.days ? true : false}>Get</button>
                             </div>
                         </div>
                     )

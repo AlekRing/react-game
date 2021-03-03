@@ -1,4 +1,4 @@
-### My first react app. You`ll nedd to clone repo. Hope you can run it.
+### My first react app. You`ll need to clone repo. Hope you can run it.
 
 #### `npm start`
 
